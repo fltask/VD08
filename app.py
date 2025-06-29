@@ -29,7 +29,7 @@ def get_zenquotes(headers):
     response = requests.get(url, headers=headers)
     if response.status_code == requests.codes.ok:
         data = response.json()[0]
-        data.update({'t': asyncio.run(translate(data['q']))})
+        data.update({'translate': asyncio.run(translate(data['q']))})
         return data
 
 
